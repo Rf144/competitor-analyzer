@@ -438,6 +438,7 @@
     }
     footer a { color: var(--cyan-dim); text-decoration: none; }
   </style>
+  <script src="https://vantage-automation.com/tracking.js"></script>
 </head>
 <body>
 
@@ -625,6 +626,7 @@
       if (!res.ok) throw new Error('伺服器錯誤：' + res.status);
       const data = await res.json();
       if (!data.success) throw new Error(data.message || '分析失敗');
+      VA&&VA.trackDemo('CompetitorAnalyzer','use',{url:urlVal});
 
       document.getElementById('loading').style.display = 'none';
       renderResults(data);
